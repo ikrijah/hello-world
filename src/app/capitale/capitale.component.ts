@@ -1,29 +1,31 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Capitale } from '../capitale.model';
+import { getLocaleDateFormat } from '@angular/common';
 
 @Component({
   selector: 'app-capitale',
   template: `
   <label for="pays">
-  Nom du pays en anglais sinon ça marche pas :
+  Enter the name of the country :
   </label>
-  <input *ngIf="capitale" type="pays" id="pays" name="Pays" [(ngModel)]="capitale.capital" >
-  <div>
-  </div>
+  <input type="pays" id="pays" name="Pays" [(ngModel)]="pays" required >
+  <button type="submit" (click)="myFunction()">Submit</button>
+  <p> {{Data}} </p>
   `,
   styles: []
 })
 export class CapitaleComponent implements OnInit {
-
-  @Input() capitale: Capitale;
-
-  constructor(http: HttpClient) {
-    http.get<Capitale>('https://restcountries.eu/rest/v2/name/France')
-      .subscribe(data => { console.log(data ); });
+  pays = '';
+  Data: string;
+  constructor(private http: HttpClient) {
   }
 
-
+  myFunction() {
+    this.http.get<any>('https://restcountries.eu/rest/v2/name/' + this.pays)
+    .subscribe(data => { this.Data = data[0].capital; });
+    console.log(this.Data);
+  }
 
   ngOnInit() {
   }

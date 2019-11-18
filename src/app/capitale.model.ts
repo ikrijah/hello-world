@@ -1,6 +1,6 @@
 
 
 export class Capitale {
-  pays: string;
+  name: string;
   capital: string;
 }

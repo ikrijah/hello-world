@@ -5,13 +5,10 @@ import { Capitale } from './capitale.model';
   selector: 'app-root',
   template: `
   <h1>Metropolis</h1>
-  <app-capitale [capitale]="myCapitale"></app-capitale>
+  <app-capitale></app-capitale>
   `,
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
   title = 'metropolis-app';
-
-  myCapitale: Capitale;
-
 }
