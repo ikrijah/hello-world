@@ -1,11 +1,15 @@
 import { Component } from '@angular/core';
-import { Capitale } from './capitale.model';
 
 @Component({
   selector: 'app-root',
   template: `
-  <h1>Metropolis</h1>
-  <app-capitale></app-capitale>
+  <nav> <ul>
+  <li><a routerLink="/home" >Home page    </a></li>
+  <li><a routerLink="/location" > Map     </a></li>
+  <li><a routerLink="/about" > About page</a></li>
+  </ul>
+  </nav>
+  <router-outlet></router-outlet>
   `,
   styleUrls: ['./app.component.css']
 })

@@ -2,19 +2,25 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { CapitaleComponent } from './capitale/capitale.component';
+import { AboutComponent } from './about/about.component';
+import { CarteComponent } from './carte/carte.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CapitaleComponent
+    CapitaleComponent,
+    AboutComponent,
+    CarteComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
