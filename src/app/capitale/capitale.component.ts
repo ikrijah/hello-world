@@ -8,22 +8,25 @@ import { LocationService } from '../location.service';
   template: `
   <h1>Metropolis</h1>
 
+  <form>
   <label>
     Enter the name of the country :
   </label>
-  <form>
     <select name="countryName" [(ngModel)]="countryName">
       <option *ngFor="let country of allData" [ngValue]="country.name" required>{{country.name}}</option>
     </select>
-  </form>
   <button type="submit" (click)="onClick()">Submit</button>
-  <ul>
-    <li> Capital : {{capitalName}} </li>
-    <li> Inhabitants : {{populationNumber}} </li>
-    <li> Flag : <br> <img id="flag" src="{{flag}}" > </li>
-  </ul>
+  <div>
+    Capital : {{capitalName}} <br>
+    Inhabitants : {{populationNumber}} <br>
+    Flag : <br><br> <img id="flag" src="{{flag}}" > <br>
+  </div>
+  </form>
   `,
   styles: [`
+  h1, form {
+    text-align: center;
+  }
   .ng-valid[required], .ng-valid.required  {
     background-color: #E1F2C7;
   }
@@ -33,7 +36,6 @@ import { LocationService } from '../location.service';
   #flag {
     max-width:20%;
     height:auto;
-  }
   `]
 })
 export class CapitaleComponent implements OnInit {
